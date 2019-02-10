@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -15,6 +16,9 @@ from .send_emails import myblog_message
 # https://www.django-rest-framework.org/
 def test(request):
     return HttpResponse("This is the test page")
+
+def index(request):
+    return redirect('admin/')
 
 class ArticleList(APIView):
     def get(self,request,format=None):
